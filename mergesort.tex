@@ -1,0 +1,72 @@
+\documentclass{report}
+
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+\begin{document}
+
+    \begin{algorithm}
+        \caption{Merge Algorithm}\label{Merge}
+        \begin{algorithmic}[1]
+            \Procedure{Merge}{$arr[],mid,n$}
+            \State $Counter1\gets 0$
+            \State $Counter2\gets mid$
+            \State $Counter\gets 0$
+            \State $Declare $ newarr[0...n-1]$ $
+            \While{$Counter1 < mid $ and $ Counter2 < n$}
+                \If{$arr[Counter1]\leq arr[Counter2]$}
+                    \State $newarr[Counter]\gets arr[Counter1]$
+                    \State $Counter\gets Counter+1$
+                    \State $Counter1\gets Counter1+1$
+                \Else
+                    \State $newarr[Counter]\gets arr[Counter2]$
+                    \State $Counter\gets Counter+1$
+                    \State $Counter2\gets Counter2+1$
+                \EndIf
+            \EndWhile
+            
+            \If{$Counter1\not= mid $ or $ Counter2\not= n$}
+                \If{$Counter1\not= mid$}
+                    \While{$Counter1\not= mid$}
+                        \State $newarr[Counter]\gets arr[Counter1]$
+                        \State $Counter\gets Counter+1$
+                        \State $Counter1\gets Counter1+1$
+                    \EndWhile
+                \Else
+                    \While{$Counter2\not= n$}
+                        \State $newarr[Counter]\gets arr[Counter2]$
+                        \State $Counter\gets Counter+1$
+                        \State $Counter2\gets Counter2+1$
+                    \EndWhile
+                \EndIf
+            \EndIf
+            \State $i\gets 0$
+            \While{$i\not= n$}
+                \State $arr[i]\gets newarr[i]$
+                \State $i\gets i+1$
+            \EndWhile
+            
+            \EndProcedure
+        \end{algorithmic}
+    \end{algorithm}
+
+    \begin{algorithm}
+        \caption{Merge Sort}\label{Merge Sort}
+        \begin{algorithmic}[1]
+            \Procedure{MergeSort}{$arr[ ],n$}
+                
+                \If{$n$ = 1}
+                    \State $Return$
+                \EndIf
+                \State $mid \gets n/2$
+                \State \Call{MergeSort}{$arr,mid$}
+                \State \Call{MergeSort}{$arr+mid,n-mid$}
+                \State \Call{Merge}{$arr,mid,n$}
+            \EndProcedure 
+        \end{algorithmic}
+    \end{algorithm}
+\end{document}
+
+
+\grid
+\grid
